@@ -15,3 +15,30 @@ For buffers B1 = B2 = 30:
 The recommended configuration combines preventive maintenance every 100 operating hours with buffers of approximately 30 units.
 
 [View the project presentation](Monte_Carlo_Presentation.pdf)
+## How to Run
+
+Requires Python 3.10 or later.
+
+1. Download and extract the repository using **Code → Download ZIP**.
+2. Keep `production_line_simulation.py` and `Project.xlsx` in the same folder.
+3. Open a terminal in that folder and install the dependency:
+
+```bash
+python -m pip install openpyxl
+```
+
+4. Run the simulation:
+
+```bash
+python production_line_simulation.py --excel Project.xlsx --runs 100 --b1 30 --b2 30 --pm 100
+```
+
+This runs 100 simulations with both buffers set to 30 units and preventive maintenance every 100 operating hours.
+
+Results are saved as CSV files in `simulation_results_v2`.
+
+To run the complete experiment with 1,000 replications for each of the 125 configurations:
+
+```bash
+python production_line_simulation.py --excel Project.xlsx --experiment --runs 1000
+```
